@@ -1,7 +1,6 @@
 package com.noxfl.leafrake.schema.momijimessage;
 
 import com.noxfl.leafrake.scraper.ContentType;
-import com.noxfl.momijitreehouse.crawler.ContentType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

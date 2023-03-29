@@ -1,7 +1,6 @@
 package com.noxfl.leafrake.schema.momijimessage;
 
-import com.noxfl.momijitreehouse.model.Field;
-import com.noxfl.momijitreehouse.crawler.ContentType;
+import com.noxfl.leafrake.scraper.ContentType;
 import lombok.*;
 
 import java.util.List;

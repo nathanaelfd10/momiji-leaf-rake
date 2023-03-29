@@ -4,7 +4,6 @@
 package com.noxfl.leafrake.schema.momijimessage;
 
 import com.noxfl.leafrake.scraper.PageType;
-import com.noxfl.momijitreehouse.crawler.PageType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,6 +26,7 @@ public class Job {
 	private Category category;
 	private String targetUrl;
 	private PageType pageType;
+	private DetailPageType detailPageType;
 	private int minPage;
 	private int maxPage;
 	private String splitPath;

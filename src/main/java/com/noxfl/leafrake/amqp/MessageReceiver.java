@@ -11,6 +11,9 @@ import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+
 public class MessageReceiver {
 
     private SiteScraperFactory siteScraperFactory;
@@ -36,7 +39,7 @@ public class MessageReceiver {
 
     @RabbitHandler
     @RabbitListener(queues = LeafRakeConfiguration.INPUT_QUEUE_NAME)
-    public void receive(String message) throws JsonProcessingException {
+    public void receive(String message) throws IOException, NoSuchFieldException, URISyntaxException {
         System.out.println("[*] Received new message");
 
         messageHandler.handle(message);
