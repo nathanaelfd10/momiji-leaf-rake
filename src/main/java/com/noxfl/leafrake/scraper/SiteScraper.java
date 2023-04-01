@@ -1,6 +1,7 @@
 package com.noxfl.leafrake.scraper;
 
 import com.noxfl.leafrake.schema.momijimessage.MomijiMessage;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.net.URISyntaxException;

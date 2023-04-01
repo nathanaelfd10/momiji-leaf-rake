@@ -10,13 +10,20 @@ import com.noxfl.leafrake.scraper.ContentType;
 import com.noxfl.leafrake.scraper.SiteScraperFactory;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
 
+@Component
 public class MessageHandler {
 
     private MessageSender messageSender;
+
+    @Autowired
+    private void setMessageSender(MessageSender messageSender) {
+        this.messageSender = messageSender;
+    }
 
     private MomijiMessage parseMessage(String message) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper()
@@ -25,12 +32,12 @@ public class MessageHandler {
         return objectMapper.readValue(message, MomijiMessage.class);
     }
 
-    private SiteScraperFactory siteScraperFactory;
-
-    @Autowired
-    public void setSiteScraperFactory(SiteScraperFactory siteScraperFactory) {
-        this.siteScraperFactory = siteScraperFactory;
-    }
+//    private SiteScraperFactory siteScraperFactory;
+//
+//    @Autowired
+//    public void setSiteScraperFactory(SiteScraperFactory siteScraperFactory) {
+//        this.siteScraperFactory = siteScraperFactory;
+//    }
 
     public void handle(String message) throws IOException, NoSuchFieldException, URISyntaxException {
 
@@ -40,21 +47,19 @@ public class MessageHandler {
 
         System.out.println("Received job: " + momijiMessage.getJob().getName());
 
-        String output = message;
-
         // Send original message if not scrape detail.
         if(job.isScrapeDetail()) {
-            String response = siteScraperFactory.getSiteScraper(job.getDetailPageType()).fetchProduct(momijiMessage);
-            String contentName = "product_detail";
-
-            Content content = new Content(contentName, ContentType.JSON, response);
-
-            momijiMessage.getJob().getContents().add(content);
-
-            output = new JSONObject(momijiMessage).toString();
+//            String response = siteScraperFactory.getSiteScraper(job.getDetailPageType()).fetchProduct(momijiMessage);
+//            String contentName = "product_detail";
+//
+//            Content content = new Content(contentName, ContentType.JSON, response);
+//
+//            momijiMessage.getJob().getContents().add(content);
+//
+//            message = new JSONObject(momijiMessage).toString();
         }
 
-        messageSender.send(output);
+        messageSender.send(message);
     }
 
 }

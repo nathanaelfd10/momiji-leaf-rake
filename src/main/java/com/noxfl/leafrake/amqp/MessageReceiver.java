@@ -16,12 +16,12 @@ import java.net.URISyntaxException;
 
 public class MessageReceiver {
 
-    private SiteScraperFactory siteScraperFactory;
-
-    @Autowired
-    public void setSiteCrawlerFactory(SiteScraperFactory siteScraperFactory) {
-        this.siteScraperFactory = siteScraperFactory;
-    }
+//    private SiteScraperFactory siteScraperFactory;
+//
+//    @Autowired
+//    public void setSiteCrawlerFactory(SiteScraperFactory siteScraperFactory) {
+//        this.siteScraperFactory = siteScraperFactory;
+//    }
 
     private Queue queue;
 
@@ -42,7 +42,10 @@ public class MessageReceiver {
     public void receive(String message) throws IOException, NoSuchFieldException, URISyntaxException {
         System.out.println("[*] Received new message");
 
+        System.out.println(message);
+
         messageHandler.handle(message);
+        System.out.println(" [x] Sent message");
     }
 
 

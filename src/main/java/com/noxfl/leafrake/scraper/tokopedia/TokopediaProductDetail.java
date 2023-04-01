@@ -72,7 +72,7 @@ public class TokopediaProductDetail implements SiteScraper {
             throw new RuntimeException(e);
         }
 
-        String pdpGetLayoutQuery = String.format(pdpGetLayoutQueryTemplate, shopDomain, productKey;
+        String pdpGetLayoutQuery = String.format(pdpGetLayoutQueryTemplate, shopDomain, productKey);
 
         return new JSONObject(pdpGetLayoutQuery);
 

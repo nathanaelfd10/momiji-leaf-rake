@@ -1,0 +1,14 @@
+spring:
+ rabbitmq:
+  host: localhost
+  username: rmq_admin
+  password: rmq_admin
+  port: 5672
+queue:
+ name:
+  read: "leaf-rake"
+  write: "wood-chipper"
+crawler:
+  politeness:
+   timeout:
+    tokopedia: 1000

@@ -3,8 +3,9 @@
  */
 package com.noxfl.leafrake.connection.impl;
 
-import com.noxfl.leafrake.connection.ApiFetcher;
-import com.noxfl.momijitreehouse.crawler.connection.ApiFetcher;
+import java.io.IOException;
+import java.util.Map;
+
 import org.apache.http.client.config.CookieSpecs;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -17,9 +18,7 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
-import java.util.Map;
-import java.util.Map.Entry;
+import com.noxfl.leafrake.connection.ApiFetcher;
 
 /**
  * @author Fernando Nathanael
